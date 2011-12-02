@@ -11,7 +11,7 @@ if ($handle)
 	while (($buffer = fgets($handle, 4096)) != false)
 	{
 		// Remove file specific characters (new line char, etc...)
-		$buffer = substr($buffer, 0, strlen($buffer)-2);
+		$buffer = substr($buffer, 0, strlen($buffer)-1);
 			
 		$query = "SELECT * FROM course WHERE CourseName = '$buffer' AND SemesterName = '$semesterName'";
 		$result = mysql_query($query) or die(mysql_error());
